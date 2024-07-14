@@ -168,7 +168,7 @@
                         
                         $sqlmain= "select * from counsellor where docemail='$keyword' or docname='$keyword' or docname like '$keyword%' or docname like '%$keyword' or docname like '%$keyword%'";
                     }else{
-                        $sqlmain= "select * from counsellor order by docid desc";
+                        $sqlmain= "SELECT a.docid, a.docemail, a.docname, a.specialties, a.docnic, a.doctel, b.sname FROM counsellor a, specialties b where a.specialties = b.id order by docid desc";
 
                     }
 
@@ -234,9 +234,9 @@
                                     $name=$row["docname"];
                                     $email=$row["docemail"];
                                     $spe=$row["specialties"];
-                                    $spcil_res= $database->query("select sname from specialties where id='$spe'");
-                                    $spcil_array= $spcil_res->fetch_assoc();
-                                    $spcil_name=$spcil_array["sname"];
+                                    /*$spcil_res= $database->query("select sname from specialties where id='$spe'");
+                                    $spcil_array= $spcil_res->fetch_assoc();*/
+                                    $spcil_name=$row["sname"];
                                     echo '<tr>
                                         <td> &nbsp;'.
                                         substr($name,0,30)
