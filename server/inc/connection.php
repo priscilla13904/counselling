@@ -1,0 +1,1 @@
+<?php $con =  mysqli_connect("localhost", "root", "" , "edoc") or die("Database Connection Fail"); ?>
