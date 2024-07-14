@@ -90,7 +90,7 @@
                     //   doctor dashbord
                     $_SESSION['user']=$email;
                     $_SESSION['usertype']='d';
-                    header('location: counsellsor/index.php');
+                    header('location: counsellor/index.php');
 
                 }else{
                     $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Wrong credentials: Invalid email or password</label>';

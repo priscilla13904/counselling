@@ -510,7 +510,7 @@
             </div>
             '; 
         }elseif($action=='view'){
-            $sqlmain= "select schedule.scheduleid,schedule.title,cou.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join counsellor on schedule.docid=counsellor.docid  where  schedule.scheduleid=$id";
+            $sqlmain= "select schedule.scheduleid,schedule.title,counsellor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join counsellor on schedule.docid=counsellor.docid  where  schedule.scheduleid=$id";
             $result= $database->query($sqlmain);
             $row=$result->fetch_assoc();
             $docname=$row["docname"];

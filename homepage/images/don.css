@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+body {background-color: beige;
+    background-repeat: repeat;
+}
+header{
+    background-color: chartreuse;
+    text-align: center;
+}
+aside{
+    width: 20%;
+    float: left;
+    padding: 10px;
+}
+section{
+    background-color: black;
+    color: darkturquoise;
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+article{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+@media screen and (max-width:600px) {
+    aside, section, article{
+        width: 100%;
+    }
+}
+        h1{color: black;
+        font-size: 2pc;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p{color: crimson;
+font-size: 1pc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+table, th, td {
+border: 1px solid black;
+}
+th,td{
+border-color: chartreuse;
+background-color: rgb(107, 47, 47);
+}

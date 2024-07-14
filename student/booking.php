@@ -38,7 +38,7 @@ if(isset($_SESSION["user"])){
 // import database
 include("../connection.php");
 
-$sqlmain = "select * from patient where pemail=?";
+$sqlmain = "select * from student where pemail=?";
 $stmt = $database->prepare($sqlmain);
 $stmt->bind_param("s", $useremail);
 $stmt->execute();
@@ -217,7 +217,7 @@ $today = date('Y-m-d');
 
                                     $id=$_GET["id"];
 
-                                    $sqlmain= "select * from schedule inner join doctor on schedule.docid=doctor.docid where schedule.scheduleid=? order by schedule.scheduledate desc";
+                                    $sqlmain= "select * from schedule inner join counsellor on schedule.docid=counsellor.docid where schedule.scheduleid=? order by schedule.scheduledate desc";
                                     $stmt = $database->prepare($sqlmain);
                                     $stmt->bind_param("i", $id);
                                     $stmt->execute();

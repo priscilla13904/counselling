@@ -200,7 +200,7 @@
                                                     <div  class="dashboard-items"  style="padding:20px;margin:auto;width:95%;display: flex">
                                                         <div>
                                                                 <div class="h1-dashboard">
-                                                                    <?php    echo $counsellorrow->num_rows  ?>
+                                                                    <?php    echo $doctorrow->num_rows  ?>
                                                                 </div><br>
                                                                 <div class="h3-dashboard">
                                                                     All Counsellors &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -213,7 +213,7 @@
                                                     <div  class="dashboard-items"  style="padding:20px;margin:auto;width:95%;display: flex;">
                                                         <div>
                                                                 <div class="h1-dashboard">
-                                                                    <?php    echo $studentrow->num_rows  ?>
+                                                                    <?php    echo $patientrow->num_rows  ?>
                                                                 </div><br>
                                                                 <div class="h3-dashboard">
                                                                     All Students &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

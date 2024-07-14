@@ -172,7 +172,7 @@
                         
                         $sqlmain= "select * from counsellor where docemail='$keyword' or docname='$keyword' or docname like '$keyword%' or docname like '%$keyword' or docname like '%$keyword%'";
                     }else{
-                        $sqlmain= "select * from counsellor order by docid desc";
+                        $sqlmain= "SELECT a.docid, a.docemail, a.docname, a.specialties, a.docnic, a.doctel, b.sname FROM counsellor a, specialties b where a.specialties = b.id order by docid desc";
 
                     }
 
@@ -238,9 +238,9 @@
                                     $name=$row["docname"];
                                     $email=$row["docemail"];
                                     $spe=$row["specialties"];
-                                    $spcil_res= $database->query("select sname from specialties where id='$spe'");
-                                    $spcil_array= $spcil_res->fetch_assoc();
-                                    $spcil_name=$spcil_array["sname"];
+                                   /* $spcil_res= $database->query("select sname from specialties where id='$spe'");
+                                    $spcil_array= $spcil_res->fetch_assoc();*/
+                                    $spcil_name=$row["sname"];
                                     echo '<tr>
                                         <td> &nbsp;'.
                                         substr($name,0,30)
@@ -285,6 +285,8 @@
         
         $id=$_GET["id"];
         $action=$_GET["action"];
+
+        echo "Action is: " .$action;
         if($action=='drop'){
             $nameget=$_GET["name"];
             echo '
@@ -306,7 +308,7 @@
             </div>
             </div>
             ';
-        }elseif($action=='view'){
+        }elseif($action = 'view'){
             $sqlmain = "SELECT * FROM counsellor WHERE docid=?";
             $stmt = $database->prepare($sqlmain);
             $stmt->bind_param("i",$id);
@@ -415,7 +417,7 @@
             </div>
             </div>
             ';
-        }elseif($action=='session'){
+        }elseif($action = 'session'){
             $name=$_GET["name"];
             echo '
             <div id="popup1" class="overlay">
@@ -443,29 +445,29 @@
             </div>
             ';
         }
-        }elseif($action=='edit'){
-            $sqlmain= "select * from counsellor where docid=?";
+        elseif($action = 'edit'){
+            $sqlmain= "SELECT a.docid, a.docemail, a.docname, a.specialties, a.docnic, a.doctel, b.sname FROM counsellor a, specialties b where a.specialties = b.id and a.docid=?";
             $stmt = $database->prepare($sqlmain);
             $stmt->bind_param("i",$id);
             $stmt->execute();
             $result = $stmt->get_result();
             $row=$result->fetch_assoc();
-       
-            $name=$row["docname"];
-            $email=$row["docemail"];
-            $spe=$row["specialties"];
             
-            $sqlmain= "select sname from specialties where id='?";
+                $name=$row["docname"];
+                $email=$row["docemail"];
+                $spe=$row["specialties"];
+            
+            /*$sqlmain= "select sname from specialties where id='?";
             $stmt = $database->prepare($sqlmain);
             $stmt->bind_param("s",$spe);
             $stmt->execute();
             $result = $stmt->get_result();
 
-            $spcil_array= $spcil_res->fetch_assoc();
-            $spcil_name=$spcil_array["sname"];
-            $nic=$row['docnic'];
-            $tele=$row['doctel'];
-
+            $spcil_array= $spcil_res->fetch_assoc();*/
+                $spcil_name=$row["sname"];
+                $nic=$row['docnic'];
+                $tele=$row['doctel'];
+            
             $error_1=$_GET["error"];
                 $errorlist= array(
                     '1'=>'<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>',
@@ -475,7 +477,7 @@
                     '0'=>'',
 
                 );
-
+        }
             if($error_1!='4'){
                     echo '
                     <div id="popup1" class="overlay">
@@ -608,7 +610,7 @@
                     </div>
                     </div>
                     ';
-        }else{
+        } else{
             echo '
                 <div id="popup1" class="overlay">
                         <div class="popup">

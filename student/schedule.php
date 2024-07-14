@@ -120,7 +120,7 @@
         </div>
         <?php
 
-                $sqlmain= "select * from schedule inner join counsellor on schedule.docid=counnsellor.docid where schedule.scheduledate>='$today'  order by schedule.scheduledate asc";
+                $sqlmain= "select * from schedule a, counsellor b where a.docid = b.docid and a.scheduledate>='$today' order by a.scheduledate asc";
                 $sqlpt1="";
                 $insertkey="";
                 $q='';

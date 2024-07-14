@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="bookappointment.css">
+</head>
+<body>
+    <section class="whole">
+        <nav>
+            <img src="image/dlogo.jpg" class="logo">
+            <ul>
+                <li class="active"><a href="../homepage.html"><i class="fa fa-home"></i>HOME</a></li>
+                <li><a href="../about us.html"><i class="fa fa-user"></i>ABOUT US</a></li>
+                <li><a href="../counselling.html">COUNSELLING</a></li>
+                <li><a href="../services.html"><i class="fa fa-clone"></i>SERVICES</a></li>
+                <li><a href="../login.php"><i class="fa fa-phone"></i>BOOK APPOINTMENT</a></li>
+                <li><a href="../contact.html"><i class="fa fa-phone"></i>CONTACT</a></li>
+                <li><a href="../forum.html"><i class="fa fa-edit"></i>FORUM</a></li>
+            </ul>
+        </nav>
+
+    <div class="container">
+        <form action="" id="contactForm">
+            <div class="alert">Your message sent</div>
+
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="mail.js"></script>
+
+</section>
+
+
+    
+    <section class="footer">
+        <div class="icons">
+            <ul>
+                <a href="https://wa.me/0790030733"><i class="fa-brands fa-square-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+            </ul>
+        </div>
+        <div class="margin">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contant us</a></li>
+                <li><a href="#">Our team</a></li>
+            </ul>
+        </div>
+        <p>Copyright &copy:Designed by; <span class="designer">Priscilla</span></p>   
+</section> 
+    
+</body>
+</html>
