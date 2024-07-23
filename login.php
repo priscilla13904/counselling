@@ -87,7 +87,7 @@
                 if ($checker->num_rows==1){
 
 
-                    //   doctor dashbord
+                    //   counsellor dashbord
                     $_SESSION['user']=$email;
                     $_SESSION['usertype']='d';
                     header('location: counsellor/index.php');
